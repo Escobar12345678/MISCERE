@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://img.icons8.com/glyph-neue/64/administrator-male.png" type="image/x-icon" />
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    /* Estilos para el tema oscuro */
+    .dark {
+      background-color: #1a202c;
+      color: #ffffff;
+    }
+    .dark .bg-white {
+      background-color: #2d3748;
+      color: #ffffff;
+    }
+    .dark .bg-gray-100 {
+      background-color: #2d3748;
+      color: #ffffff;
+    }
+    .dark .text-gray-800,
+    .dark .text-gray-700,
+    .dark .text-gray-600,
+    .dark .text-gray-500 {
+      color: #ffffff;
+    }
+    .dark .border {
+      border-color: #4a5568;
+    }
+    .dark input,
+    .dark select,
+    .dark textarea {
+      background-color: #4a5568;
+      color: #ffffff;
+      border-color: #4a5568;
+    }
+    .dark .modal-content {
+      background-color: #2d3748;
+      color: #ffffff;
+      border-color: #4a5568;
+    }
+    .dark .bg-purple-600 {
+      background-color: #6b46c1;
+    }
+    .dark .text-red-600 {
+      color: #fc8181;
+    }
+    .dark .text-blue-500 {
+      color: #63b3ed;
+    }
+    .dark .bg-gray-200 {
+      background-color: #4a5568;
+      color: #ffffff;
+    }
+    .dark .shadow-md {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    }
+    .dark .bg-gray-300 {
+      background-color: #4a5568;
+      color: #ffffff;
+    }
+    .dark .hover\:underline:hover {
+      text-decoration-color: #ffffff;
+    }
+    .dark ::placeholder {
+      color: #cbd5e0;
+      opacity: 1;
+    }
+    #profile-photo-input {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+
+<!-- Encabezado -->
+<header class="bg-purple-600 text-white px-4 py-3 flex items-center">
+  <a href="/inicio"> <!-- Envolvemos el botón de la flecha en un enlace -->
+    <button class="mr-2 text-xl">&larr;</button>
+  </a>
+  <h1 class="text-lg font-semibold" id="profile-title">Mi perfil</h1>
+</header>
+
+
+<!-- Perfil -->
+<div class="p-4">
+  <div class="bg-white rounded-xl shadow-md p-4 flex items-center">
+    <div class="relative">
+      <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden flex items-center justify-center mr-4">
+        <!-- Aquí mostramos la foto de perfil -->
+        <img id="profile-photo" src="https://via.placeholder.com/64" alt="Foto de perfil" class="w-full h-full object-cover">
+      </div>
+      <button onclick="document.getElementById('profile-photo-input').click()" 
+              class="absolute -bottom-1 -right-1 bg-purple-600 text-white text-xs p-1 rounded-full hover:bg-purple-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </button>
+      <input type="file" id="profile-photo-input" accept="image/*" onchange="handleProfilePhotoChange(event)">
+    </div>
+    <div>
+      <h2 class="font-semibold text-base">Juan Pérez</h2>
+      <p class="text-sm text-gray-500">juan@example.com</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleProfilePhotoChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        const photoUrl = reader.result;
+        document.getElementById('profile-photo').src = photoUrl;
+
+        // Guardar la URL de la imagen en localStorage
+        localStorage.setItem('profilePhoto', photoUrl);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // Cargar la foto guardada si existe al cargar la página
+  window.onload = function () {
+    const savedPhoto = localStorage.getItem('profilePhoto');
+    if (savedPhoto) {
+      document.getElementById('profile-photo').src = savedPhoto;
+    }
+  };
+</script>
+
+
+  <!-- Secciones desplegables -->
+  <div class="px-4 space-y-4">
+
+    <!-- Tu Información -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('info')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="info-title">Tu Información</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="info" class="hidden px-4 pb-4 space-y-4">
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="name-label">Nombre</label>
+          <div class="flex">
+            <input type="text" id="name-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" value="Juan Pérez" />
+            <button onclick="validateAndModify('name-input', 'Nombre')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-name">Modificar</button>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="email-label">Correo</label>
+          <div class="flex">
+            <input type="email" id="email-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" value="juan@example.com" />
+            <button onclick="validateAndModify('email-input', 'Correo')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-email">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Datos de tu cuenta -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('cuenta')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="account-title">Datos de tu cuenta</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="cuenta" class="hidden px-4 pb-4 space-y-4">
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="username-label">Usuario</label>
+          <div class="flex">
+            <input type="text" id="username-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" value="juanperez123" />
+            <button onclick="validateAndModify('username-input', 'Usuario')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-username">Modificar</button>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="password-label">Contraseña</label>
+          <div class="flex">
+            <input type="password" id="password-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="••••••••" />
+            <button onclick="validateAndModify('password-input', 'Contraseña')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-password">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mis Tarjetas -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('tarjetas')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="cards-title">Mis Tarjetas</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="tarjetas" class="hidden px-4 pb-4 space-y-4">
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="card-number-label">Número de Tarjeta</label>
+          <div class="flex">
+            <input type="text" id="card-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="**** **** **** 1234" />
+            <button onclick="validateAndModify('card-input', 'Tarjeta')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-card">Modificar</button>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="expiration-label">Fecha de Vencimiento</label>
+          <div class="flex">
+            <input type="text" id="expiration-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="MM/AA" />
+            <button onclick="validateAndModify('expiration-input', 'Vencimiento')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-expiration">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direcciones -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('direccion')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="addresses-title">Direcciones</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="direccion" class="hidden px-4 pb-4 space-y-4">
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="address-label">Dirección</label>
+          <div class="flex">
+            <input type="text" id="address-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="Calle 123, Ciudad" />
+            <button onclick="validateAndModify('address-input', 'Dirección')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-address">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historial de compras -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('historial')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="history-title">Historial de Compras</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="historial" class="hidden px-4 pb-4 text-sm text-gray-600">
+        <p id="no-purchases">No hay compras registradas aún.</p>
+      </div>
+    </div>
+
+    <!-- Compras -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('compras')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="purchases-title">Compras</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="compras" class="hidden px-4 pb-4 text-sm text-gray-600">
+        <p id="last-purchases">Últimas compras aparecerán aquí.</p>
+      </div>
+    </div>
+
+    <!-- Otros -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('otros')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="others-title">Y Otros (Genero / Idioma)</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="otros" class="hidden px-4 pb-4 space-y-4">
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="gender-label">Genero</label>
+          <div class="flex">
+            <select class="flex-1 border rounded-lg p-2 text-sm mr-2" id="gender-select">
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>Otro</option>
+            </select>
+            <button onclick="modificar('Sexo')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-gender">Modificar</button>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="language-label">Idioma</label>
+          <div class="flex">
+            <select class="flex-1 border rounded-lg p-2 text-sm mr-2" id="language-select" onchange="changeLanguage()">
+              <option value="es">Español</option>
+              <option value="en">Inglés</option>
+            </select>
+            <button onclick="modificar('Idioma')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-language">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuración -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden">
+      <button onclick="toggleSection('config')" class="w-full px-4 py-3 text-left font-semibold flex justify-between items-center">
+        <span id="settings-title">Configuración</span>
+        <span class="text-gray-500">&or;</span>
+      </button>
+      <div id="config" class="hidden px-4 pb-4 space-y-4">
+        <!-- Contraseña -->
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="change-password-label">Cambiar Contraseña</label>
+          <div class="flex">
+            <input type="password" id="new-password-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="Nueva contraseña" />
+            <button onclick="validateAndModify('new-password-input', 'Contraseña')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-new-password">Modificar</button>
+          </div>
+        </div>
+
+        <!-- Tema -->
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="theme-label">Tema</label>
+          <div class="flex">
+            <select id="themeSelector" class="flex-1 border rounded-lg p-2 text-sm mr-2" onchange="changeTheme()">
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
+            </select>
+            <button onclick="toggleDarkMode()" class="ml-auto bg-black text-white px-3 py-1 rounded">
+              🌙 Modo oscuro
+            </button>
+            
+          </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="notifications-label">Notificaciones</label>
+          <div class="flex">
+            <select class="flex-1 border rounded-lg p-2 text-sm mr-2" id="notifications-select">
+              <option>Activadas</option>
+              <option>Desactivadas</option>
+            </select>
+            <button onclick="modificar('Notificaciones')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-notifications">Modificar</button>
+          </div>
+        </div>
+
+        <!-- Horarios -->
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="schedule-label">Horarios</label>
+          <div class="flex">
+            <input type="text" id="schedule-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="Ej: 9:00 - 18:00" />
+            <button onclick="validateAndModify('schedule-input', 'Horarios')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-schedule">Modificar</button>
+          </div>
+        </div>
+
+        <!-- Accesos -->
+        <div class="space-y-1">
+          <label class="block text-sm font-medium" id="access-label">Accesos</label>
+          <div class="flex">
+            <input type="text" id="access-input" class="flex-1 border rounded-lg p-2 text-sm mr-2" placeholder="Ej: App móvil, Web" />
+            <button onclick="validateAndModify('access-input', 'Accesos')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm whitespace-nowrap" id="modify-access">Modificar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cerrar sesión -->
+    <div class="mt-6 text-center">
+      <button class="text-red-600 font-medium hover:underline" id="logout-btn">Cerrar Sesión</button>
+    </div>
+
+    <div class="mt-2 text-center text-sm">
+      <a href="#" onclick="openTermsModal()" class="text-blue-500 underline" id="terms-link">Términos y condiciones</a>
+    </div>
+  </div>
+
+  <!-- Modal de Términos y Condiciones -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold" id="terms-title">Términos y condiciones</h3>
+        <span onclick="closeTermsModal()" class="cursor-pointer text-xl">&times;</span>
+      </div>
+      <div class="text-sm">
+        <p id="terms-text-1">Al registrarte y usar <strong>MISCERE</strong> aceptas estos Términos y Condiciones. La app está diseñada para optimizar la gestión de misceláneas, facilitando el control de inventario, la relación con proveedores y la expensión del cliente. Su uso está destinado exclusivamente a propietarios y administradores de misceláneas, prohibiéndose su explotación o uso ilícito.</p>
+        
+        <p class="mt-3" id="terms-text-2">Para acceder a sus funciones, debes registrarte con información verídica y eres responsable del uso de tu cuenta: MISCERE puede suspender cuenta que incumplan estas normas. Cumplimos con la Ley 1582 de 2012 sobre Protección de Datos Personales por lo que tu información solo se usará para mejorar la experiencia del usuario y no se compartirá con terceros sin consentimiento, salvo requerimiento legal.</p>
+        
+        <p class="mt-3" id="terms-text-3">Si la app ofrece compras o pagos, estos serán procesados por plataformas seguras, sin responsabilidad por problemas con terceros. Todo el contenido de MISCERE está protocrito por la Ley 23 de 1982 de Derechos de Autor, por lo que no puedes copiarlo, ni modificarlo sin autorización.</p>
+        
+        <p class="mt-3" id="terms-text-4">Nos esforzamos por ofrecer un servicio seguro, pero no garantizamos que esté libre de errores o interrupciones, ni nos hacemos responsables de pérdidas derivadas de su uso. Nos reservamos el derecho de modificar estos términos y notificaremos cambios relevantes.</p>
+        
+        <div class="mt-4 flex items-center">
+          <input type="checkbox" id="acceptTerms" class="mr-2">
+          <label for="acceptTerms" id="accept-terms-label">He leído y acepto los Términos y Condiciones</label>
+        </div>
+        
+        <div class="mt-4 text-right">
+          <button onclick="closeTermsModal()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2" id="cancel-terms-btn">Cancelar</button>
+          <button onclick="acceptTerms()" class="bg-purple-600 text-white px-4 py-2 rounded" id="accept-terms-btn">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  
+      function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+      }
+    
+    
+    // Traducciones
+    const translations = {
+      es: {
+        title: "Mi perfil",
+        information: "Tu Información",
+        name: "Nombre",
+        email: "Correo",
+        accountData: "Datos de tu cuenta",
+        username: "Usuario",
+        password: "Contraseña",
+        cards: "Mis Tarjetas",
+        cardNumber: "Número de Tarjeta",
+        expiration: "Fecha de Vencimiento",
+        addresses: "Direcciones",
+        address: "Dirección",
+        purchaseHistory: "Historial de Compras",
+        noPurchases: "No hay compras registradas aún.",
+        purchases: "Compras",
+        lastPurchases: "Últimas compras aparecerán aquí.",
+        others: "Y Otros (Genero / Idioma)",
+        gender: "Genero",
+        language: "Idioma",
+        settings: "Configuración",
+        changePassword: "Cambiar Contraseña",
+        theme: "Tema",
+        notifications: "Notificaciones",
+        schedule: "Horarios",
+        access: "Accesos",
+        logout: "Cerrar Sesión",
+        terms: "Términos y condiciones",
+        modify: "Modificar",
+        termsTitle: "Términos y condiciones",
+        termsText1: "Al registrarte y usar <strong>MISCERE</strong> aceptas estos Términos y Condiciones. La app está diseñada para optimizar la gestión de misceláneas, facilitando el control de inventario, la relación con proveedores y la expensión del cliente. Su uso está destinado exclusivamente a propietarios y administradores de misceláneas, prohibiéndose su explotación o uso ilícito.",
+        termsText2: "Para acceder a sus funciones, debes registrarte con información verídica y eres responsable del uso de tu cuenta: MISCERE puede suspender cuenta que incumplan estas normas. Cumplimos con la Ley 1582 de 2012 sobre Protección de Datos Personales por lo que tu información solo se usará para mejorar la experiencia del usuario y no se compartirá con terceros sin consentimiento, salvo requerimiento legal.",
+        termsText3: "Si la app ofrece compras o pagos, estos serán procesados por plataformas seguras, sin responsabilidad por problemas con terceros. Todo el contenido de MISCERE está protocrito por la Ley 23 de 1982 de Derechos de Autor, por lo que no puedes copiarlo, ni modificarlo sin autorización.",
+        termsText4: "Nos esforzamos por ofrecer un servicio seguro, pero no garantizamos que esté libre de errores o interrupciones, ni nos hacemos responsables de pérdidas derivadas de su uso. Nos reservamos el derecho de modificar estos términos y notificaremos cambios relevantes.",
+        acceptTerms: "He leído y acepto los Términos y Condiciones",
+        cancel: "Cancelar",
+        accept: "Aceptar",
+        fieldRequired: "Este campo es requerido"
+      },
+      en: {
+        title: "My Profile",
+        information: "Your Information",
+        name: "Name",
+        email: "Email",
+        accountData: "Account Data",
+        username: "Username",
+        password: "Password",
+        cards: "My Cards",
+        cardNumber: "Card Number",
+        expiration: "Expiration Date",
+        addresses: "Addresses",
+        address: "Address",
+        purchaseHistory: "Purchase History",
+        noPurchases: "No purchases registered yet.",
+        purchases: "Purchases",
+        lastPurchases: "Last purchases will appear here.",
+        others: "Others (Gender / Language)",
+        gender: "Gender",
+        language: "Language",
+        settings: "Settings",
+        changePassword: "Change Password",
+        theme: "Theme",
+        notifications: "Notifications",
+        schedule: "Schedule",
+        access: "Access",
+        logout: "Logout",
+        terms: "Terms and Conditions",
+        modify: "Modify",
+        termsTitle: "Terms and Conditions",
+        termsText1: "By registering and using <strong>MISCERE</strong> you accept these Terms and Conditions. The app is designed to optimize the management of convenience stores, facilitating inventory control, supplier relationships and customer spending. Its use is intended exclusively for owners and administrators of convenience stores, prohibiting its exploitation or illicit use.",
+        termsText2: "To access its functions, you must register with truthful information and you are responsible for the use of your account: MISCERE may suspend accounts that violate these rules. We comply with Law 1582 of 2012 on Protection of Personal Data, so your information will only be used to improve the user experience and will not be shared with third parties without consent, unless required by law.",
+        termsText3: "If the app offers purchases or payments, these will be processed by secure platforms, with no responsibility for problems with third parties. All MISCERE content is protected by Law 23 of 1982 on Copyright, so you cannot copy or modify it without authorization.",
+        termsText4: "We strive to provide a secure service, but we do not guarantee that it will be free of errors or interruptions, nor are we responsible for losses resulting from its use. We reserve the right to modify these terms and will notify relevant changes.",
+        acceptTerms: "I have read and accept the Terms and Conditions",
+        cancel: "Cancel",
+        accept: "Accept",
+        fieldRequired: "This field is required"
+      }
+    };
+
+    // Función para manejar el cambio de foto de perfil
+    function handleProfilePhotoChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        // Verificar que sea una imagen
+        if (!file.type.match('image.*')) {
+          const currentLanguage = localStorage.getItem('language') || 'es';
+          if (currentLanguage === 'es') {
+            alert('Por favor selecciona un archivo de imagen válido');
+          } else {
+            alert('Please select a valid image file');
+          }
+          return;
+        }
+
+        // Verificar tamaño máximo (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+          const currentLanguage = localStorage.getItem('language') || 'es';
+          if (currentLanguage === 'es') {
+            alert('La imagen no debe superar los 2MB');
+          } else {
+            alert('Image should not exceed 2MB');
+          }
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profile-photo').src = e.target.result;
+          
+          // Guardar la imagen en localStorage para persistencia
+          localStorage.setItem('profilePhoto', e.target.result);
+          
+          // Mostrar mensaje de éxito
+          const currentLanguage = localStorage.getItem('language') || 'es';
+          if (currentLanguage === 'es') {
+            alert('Foto de perfil actualizada correctamente');
+          } else {
+            alert('Profile photo updated successfully');
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Verificar tema e idioma guardado al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.getElementById('themeSelector').value = savedTheme;
+      applyTheme(savedTheme);
+
+      const savedLanguage = localStorage.getItem('language') || 'es';
+      document.getElementById('language-select').value = savedLanguage;
+      applyLanguage(savedLanguage);
+      
+      // Cargar foto de perfil guardada si existe
+      const savedPhoto = localStorage.getItem('profilePhoto');
+      if (savedPhoto) {
+        document.getElementById('profile-photo').src = savedPhoto;
+      }
+    });
+
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    // Función para validar campos antes de modificar
+    function validateAndModify(inputId, campo) {
+      const input = document.getElementById(inputId);
+      const currentLanguage = localStorage.getItem('language') || 'es';
+      
+      if (!input.value.trim()) {
+        // Mostrar alerta de campo vacío
+        if (currentLanguage === 'es') {
+          alert('Por favor complete el campo antes de modificar');
+        } else {
+          alert('Please fill in the field before modifying');
+        }
+        return;
+      }
+      
+      // Si el campo no está vacío, proceder con la modificación
+      modificar(campo);
+    }
+
+    function modificar(campo) {
+      const currentLanguage = localStorage.getItem('language') || 'es';
+      if (currentLanguage === 'es') {
+        alert(campo + ' modificado correctamente.');
+      } else {
+        alert(campo + ' modified successfully.');
+      }
+    }
+
+    // Funciones para el cambio de tema
+    function changeTheme() {
+      const theme = document.getElementById('themeSelector').value;
+      applyTheme(theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        document.querySelectorAll('.text-gray-800, .text-gray-700, .text-gray-600, .text-gray-500').forEach(el => {
+          el.classList.add('text-white');
+          el.classList.remove('text-gray-800', 'text-gray-700', 'text-gray-600', 'text-gray-500');
+        });
+      } else {
+        document.body.classList.remove('dark');
+        document.querySelectorAll('.text-white').forEach(el => {
+          el.classList.remove('text-white');
+          el.classList.add('text-gray-800');
+        });
+      }
+    }
+
+    // Funciones para el cambio de idioma
+    function changeLanguage() {
+      const language = document.getElementById('language-select').value;
+      applyLanguage(language);
+      localStorage.setItem('language', language);
+    }
+
+    function applyLanguage(language) {
+      const lang = translations[language];
+      
+      // Actualizar todos los textos
+      document.getElementById('profile-title').textContent = lang.title;
+      document.getElementById('info-title').textContent = lang.information;
+      document.getElementById('name-label').textContent = lang.name;
+      document.getElementById('email-label').textContent = lang.email;
+      document.getElementById('account-title').textContent = lang.accountData;
+      document.getElementById('username-label').textContent = lang.username;
+      document.getElementById('password-label').textContent = lang.password;
+      document.getElementById('cards-title').textContent = lang.cards;
+      document.getElementById('card-number-label').textContent = lang.cardNumber;
+      document.getElementById('expiration-label').textContent = lang.expiration;
+      document.getElementById('addresses-title').textContent = lang.addresses;
+      document.getElementById('address-label').textContent = lang.address;
+      document.getElementById('history-title').textContent = lang.purchaseHistory;
+      document.getElementById('no-purchases').textContent = lang.noPurchases;
+      document.getElementById('purchases-title').textContent = lang.purchases;
+      document.getElementById('last-purchases').textContent = lang.lastPurchases;
+      document.getElementById('others-title').textContent = lang.others;
+      document.getElementById('gender-label').textContent = lang.gender;
+      document.getElementById('language-label').textContent = lang.language;
+      document.getElementById('settings-title').textContent = lang.settings;
+      document.getElementById('change-password-label').textContent = lang.changePassword;
+      document.getElementById('theme-label').textContent = lang.theme;
+      document.getElementById('notifications-label').textContent = lang.notifications;
+      document.getElementById('schedule-label').textContent = lang.schedule;
+      document.getElementById('access-label').textContent = lang.access;
+      document.getElementById('logout-btn').textContent = lang.logout;
+      document.getElementById('terms-link').textContent = lang.terms;
+      document.getElementById('terms-title').textContent = lang.termsTitle;
+      document.getElementById('terms-text-1').innerHTML = lang.termsText1;
+      document.getElementById('terms-text-2').textContent = lang.termsText2;
+      document.getElementById('terms-text-3').textContent = lang.termsText3;
+      document.getElementById('terms-text-4').textContent = lang.termsText4;
+      document.getElementById('accept-terms-label').textContent = lang.acceptTerms;
+      document.getElementById('cancel-terms-btn').textContent = lang.cancel;
+      document.getElementById('accept-terms-btn').textContent = lang.accept;
+
+      // Actualizar textos de botones Modificar
+      document.querySelectorAll('[id^="modify-"]').forEach(button => {
+        button.textContent = lang.modify;
+      });
+
+      // Actualizar opciones del select de género
+      if (language === 'en') {
+        document.querySelector('#gender-select option:nth-child(1)').textContent = 'Male';
+        document.querySelector('#gender-select option:nth-child(2)').textContent = 'Female';
+        document.querySelector('#gender-select option:nth-child(3)').textContent = 'Other';
+        
+        document.querySelector('#notifications-select option:nth-child(1)').textContent = 'Enabled';
+        document.querySelector('#notifications-select option:nth-child(2)').textContent = 'Disabled';
+      } else {
+        document.querySelector('#gender-select option:nth-child(1)').textContent = 'Masculino';
+        document.querySelector('#gender-select option:nth-child(2)').textContent = 'Femenino';
+        document.querySelector('#gender-select option:nth-child(3)').textContent = 'Otro';
+        
+        document.querySelector('#notifications-select option:nth-child(1)').textContent = 'Activadas';
+        document.querySelector('#notifications-select option:nth-child(2)').textContent = 'Desactivadas';
+      }
+    }
+
+    // Funciones para el modal de términos
+    function openTermsModal() {
+      document.getElementById('termsModal').style.display = 'block';
+    }
+
+    function closeTermsModal() {
+      document.getElementById('termsModal').style.display = 'none';
+    }
+
+    function acceptTerms() {
+      const currentLanguage = localStorage.getItem('language') || 'es';
+      if(document.getElementById('acceptTerms').checked) {
+        if (currentLanguage === 'es') {
+          alert('¡Gracias por aceptar nuestros Términos y Condiciones!');
+        } else {
+          alert('Thank you for accepting our Terms and Conditions!');
+        }
+        closeTermsModal();
+      } else {
+        if (currentLanguage === 'es') {
+          alert('Por favor marca la casilla para aceptar los Términos y Condiciones');
+        } else {
+          alert('Please check the box to accept the Terms and Conditions');
+        }
+      }
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    window.onclick = function(event) {
+      const modal = document.getElementById('termsModal');
+      if (event.target == modal) {
+        closeTermsModal();
+      }
+    }
+  </script>
+</body>
+</html>

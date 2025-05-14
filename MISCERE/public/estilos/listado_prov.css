@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #fff;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tab {
+    padding: 15px;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #777;
+  }
+  
+  .tab.active {
+    color: #000;
+    border-bottom: 2px solid #6200ea;
+  }
+  
+  .contenedor {
+    padding: 15px;
+    padding-bottom: 80px;
+  }
+  
+  .buscador {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .proveedores li {
+    list-style: none;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .proveedores a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .mapa-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .info-proveedor {
+    background-color: #8e24aa;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  
+  .bottom-nav a {
+    text-align: center;
+    color: #9709ef;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  .bottom-nav a img {
+    width: 38px;
+    height: 38px;
+  
+    margin: 0 auto;
+  }
+  
+  
+  .bottom-nav small {
+    display: block;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio</title>
+  <link rel="stylesheet" href="/estilos/inicio.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="top-bar">
+    <div class="left">
+      <button class="menu-btn">
+        <a href="/principal"><img src="https://miro.medium.com/v2/resize:fit:730/1*ZAOQ_hsNNjO1CEEeSB75eQ.png" alt=""></a>
+      </button>
+    </div>
+    
+    <div class="center">
+        <span class="location-label">Location</span>
+        <strong class="city">Cali</strong>
+      </div>      
+      <div class="right">
+        <button class="profile-btn">
+          <img src="https://www.shutterstock.com/image-vector/purple-user-icon-circle-shadow-260nw-1303495003.jpg" alt="Perfil" class="profile-icon">
+        </button>
+      </div>
+    <!-- Botón de Modo Oscuro -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle">
+      <label for="darkModeToggle">Modo Oscuro</label>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <section class="search-section">
+    <input type="text" placeholder="Buscar Producto" class="search-input" id="searchInput"/>
+  </section>
+
+  <!-- Proveedores -->
+  <section class="section providers-wrapper">
+    <div class="section-header">
+      <h3>Proveedores</h3>
+      <a href="#" id="viewMoreBtn">Ver más</a>
+    </div>
+    <div class="providers">
+      <img class="small" src="https://lh3.googleusercontent.com/p/AF1QipP7rtDgk6yBMDotW2nhZMkAD7G-7TXryV_rt4Zp=s680-w680-h510-rw" alt="Proveedor 1" />
+      <img class="small" src="https://lh3.googleusercontent.com/p/AF1QipNWTSObQstCozWtGpVmuHDwxNKHIG5BM6oNMbVm=s680-w680-h510-rw" alt="Proveedor 2" />
+      <img class="small" src="https://lh3.googleusercontent.com/p/AF1QipNj1WeZ04y2ONBoFZ3WA1ED5-5TE28HLRsZrgVy=s680-w680-h510-rw" alt="Proveedor 3" />
+      <img class="hidden" src="https://www.laestacioncentrocomercial.co/wp-content/uploads/2025/04/guia-foto-sola.png" alt="Proveedor 4" />
+      <img class="hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiux6iWVihI3SFQxRpkmHuKOzjf6pIEvyfTg&s" alt="Proveedor 5" />
+    </div>
+  </section>
+
+  <section class="section favorites-wrapper">
+    <div class="section-header">
+      <h3>Favoritos</h3>
+      <a href="#">Ver más</a>
+    </div>
+    <div class="favorites">
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipP7rtDgk6yBMDotW2nhZMkAD7G-7TXryV_rt4Zp=s680-w680-h510-rw" alt="Lupita" />
+        <div class="card-info">
+          <h3>Variedades Lupita</h3>
+          <p>Centro de Cali</p>
+          <span>📍 59 km</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipNWTSObQstCozWtGpVmuHDwxNKHIG5BM6oNMbVm=s680-w680-h510-rw" alt="Kevin" />
+        <div class="card-info">
+          <h3>Detalles y sorpresas Kevin</h3>
+          <p>San Andresito</p>
+          <span>📍 60 km</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menú inferior -->
+  <nav class="bottom-nav">
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/8273/8273261.png" alt="Inicio">
+      <br><small>Inicio</small>
+    </a>
+
+    <a href="/catalogo.html">
+      <img src="https://cdn-icons-png.flaticon.com/256/16701/16701662.png" alt="Inicio">
+      <br><small>Categoria</small>
+    </a>
+
+    <a href="/carri.html">
+      <img src=" https://icones.pro/wp-content/uploads/2021/05/icone-de-panier-violet.png" alt="Inicio">
+      <br><small>Carrito</small>
+    </a>
+   
+    <a href="/notifi.html">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJfC5xbSR2DrcdkY5h2PImwF2RA8xVrn56Q&s" alt="Inicio">
+      <br><small>Notificaciones</small>
+    </a>
+  </nav>
+
+  <!-- Modal Proveedor -->
+  <div id="providerModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img src="" alt="Proveedor" class="modal-img" />
+      <h2 id="modalName">Nombre del Proveedor</h2>
+      <p id="modalLocation">Ubicación</p>
+      <p id="modalDescription">Descripción detallada del proveedor. Información sobre productos, historia, atención, etc.</p>
+      <a href="#" class="btn-contactar">Contactar</a>
+    </div>
+  </div>
+
+  <script src="/ITERA/inicio.js"></script>
+  <script src="/ITERA/buscar.js"></script>
+  <script>
+    // Script para alternar entre modo claro y oscuro
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Comprobar el estado de preferencia al cargar la página
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.checked = true;
+    }
+
+    // Alternar el modo oscuro
+    darkModeToggle.addEventListener('change', () => {
+      if (darkModeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
+
+</body>
+</html>

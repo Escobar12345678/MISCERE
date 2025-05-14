@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camas</title>
+  <link rel="stylesheet" href="/estilos/PRODUCTOS/hogar_cocina.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="/cata_hogar_cocina.html" class="back-arrow">←</a>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar Producto" id="searchInput">
+  </div>
+</header>
+
+<h2 class="section-title">CAMAS</h2>
+
+<main class="product-grid">
+  <!-- Producto 1 -->
+  <div class="product-card">
+    <img src="https://www.rta.com.co/wp-content/uploads/2023/11/RLP-9429-CABECERO-NEUSS-1.40-LENNOPLOMO_LD.jpg" alt="Sofá">
+    <h3>Juego de Alcoba de madera gruesa</h3>
+    <p class="brand">ARMONIA</p>
+
+    <div class="colors">
+      <span class="color-circle" style="background-color: black;"></span>
+      <span class="color-circle" style="background-color: gray;"></span>
+      <span class="color-circle" style="background-color: rgb(237, 198, 135);"></span>
+    </div>
+
+    <div class="price-info">
+      <span class="discount">-37%</span>
+      <span class="old-price">$ 2.431.890</span>
+    </div>
+    <p class="current-price">Ahora: <strong>$ 2.259.900</strong></p>
+    <p class="stock-alert">¡Últimas 9 unidades!</p>
+    <p class="shipping">📦 Envíos de 2 a 10 días</p>
+
+    <div class="quantity-selector">
+        <button class="decrease">−</button>
+        <span class="quantity">0🛒</span>
+        <button class="increase">+</button>
+    </div>
+
+    <div class="actions">
+      <a href="/metodos-pago" class="buy">Comprar Ahora</a>
+      <button class="add-cart">Agregar</button>
+    </div>
+
+    
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="product-card">
+    <img src="https://habitathome.com.co/wp-content/uploads/2023/03/114.png" alt="Comedor">
+    <h3>Juego de Alcoba Matrimonial</h3>
+    <p class="brand">MADESA</p>
+
+    <div class="colors">
+      <span class="color-circle" style="background-color: rgb(229, 199, 165);"></span>
+      <span class="color-circle" style="background-color: white;"></span>
+    </div>
+
+    <div class="price-info">
+      <span class="discount">-5%</span>
+      <span class="old-price">$ 4.389.900</span>
+    </div>
+    <p class="current-price">Ahora: <strong>$ 4.350.900</strong></p>
+    <p class="stock-alert">¡Últimas 2 unidades!</p>
+    <p class="shipping">🚛 Envíos de 2 a 10 días</p>
+
+    <div class="quantity-selector">
+        <button class="decrease">−</button>
+        <span class="quantity">0🛒</span>
+        <button class="increase">+</button>
+    </div>
+    
+    <div class="actions">
+      <a href="/metodos-pago" class="buy">Comprar Ahora</a>
+      <button class="add-cart">Agregar</button>
+    </div>
+  </div>
+</main>
+
+<script src="/ITERA/home_cocina.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const productCards = document.querySelectorAll(".product-card");
+    const searchInput = document.getElementById("searchInput");
+
+    productCards.forEach(card => {
+      const decreaseBtn = card.querySelector(".decrease");
+      const increaseBtn = card.querySelector(".increase");
+      const quantityDisplay = card.querySelector(".quantity");
+
+      const stockText = card.querySelector(".stock-alert").textContent;
+      const stockMatch = stockText.match(/\d+/);
+      const stock = stockMatch ? parseInt(stockMatch[0]) : 0;
+
+      let quantity = 0;
+
+      increaseBtn.addEventListener("click", () => {
+        if (quantity < stock) {
+          quantity++;
+          quantityDisplay.textContent = quantity;
+        } else {
+          alert(`Solo hay ${stock} unidades disponibles`);
+        }
+      });
+
+      decreaseBtn.addEventListener("click", () => {
+        if (quantity > 0) {
+          quantity--;
+          quantityDisplay.textContent = quantity;
+        }
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        productCards.forEach(function (card) {
+          const title = card.querySelector("h3").textContent.toLowerCase();
+          const brand = card.querySelector(".brand").textContent.toLowerCase();
+
+          if (title.includes(searchTerm) || brand.includes(searchTerm)) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

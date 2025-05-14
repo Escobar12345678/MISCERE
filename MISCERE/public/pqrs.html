@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PQRS - Miscere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/estilos/main.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>Miscere</h1>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+            <ul>
+                <li class="active"><a href="principal">Información</a></li>
+                <li>
+                    <a href="#" class="nav-notif-trigger">
+                      <i class="fas fa-bell"></i>
+                      <span class="notif-badge">3</span>
+                    </a>
+                  </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="page-container">
+            <div class="breadcrumb">
+                <a href="camilo.html">Información</a> > PQRS
+            </div>
+
+            <h1>PQRS - Peticiones, Quejas, Reclamos y Sugerencias</h1>
+            
+            <div class="pqrs-intro">
+                <p>En Miscere valoramos tu opinión. Utiliza este formulario para enviarnos tus peticiones, quejas, reclamos o sugerencias. Nuestro equipo revisará tu solicitud y te responderá a la brevedad posible.</p>
+            </div>
+            
+            <div class="pqrs-container">
+                <div class="pqrs-info">
+                    <h2>¿Cómo funciona el proceso?</h2>
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h3>Envía tu solicitud</h3>
+                            <p>Completa el formulario con todos los detalles necesarios.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h3>Recibe confirmación</h3>
+                            <p>Te enviaremos un correo electrónico con el número de seguimiento.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h3>Análisis de la solicitud</h3>
+                            <p>Nuestro equipo evaluará tu caso cuidadosamente.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h3>Resolución</h3>
+                            <p>Te contactaremos con la respuesta a tu solicitud.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pqrs-form">
+                    <h2>Formulario PQRS</h2>
+                    <form id="pqrsForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo*</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono*</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        
+                        <div class="<div class="form-group">
+                            <label for="tipo">Tipo de solicitud*</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="peticion">Petición</option>
+                                <option value="queja">Queja</option>
+                                <option value="reclamo">Reclamo</option>
+                                <option value="sugerencia">Sugerencia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto*</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje*</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="archivo">Adjuntar archivo (opcional)</label>
+                            <input type="file" id="archivo" name="archivo">
+                            <small>Formatos permitidos: JPG, PNG, PDF. Tamaño máximo: 5MB</small>
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los términos y condiciones y la política de privacidad*</label>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="reset" class="btn-secondary">Limpiar</button>
+                            <button type="submit" class="btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h2>Otras formas de contacto</h2>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfono</h3>
+                        <p>+57 315 487  4569</p>
+                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Correo Electrónico</h3>
+                        <p>miscere@gmail.com</p>
+                        <p>Respuesta en 24-48 horas hábiles</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-comments"></i>
+                        <h3>Chat en Línea</h3>
+                        <p>Disponible en nuestra página principal</p>
+                        <p>Lunes a Sábado: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                    <li><a href="politicas.html">Políticas</a></li>
+                    <li><a href="pqrs.html">PQRS</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> miscere@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +57 315 487  4569</p>
+            </div>
+            <div class="foote

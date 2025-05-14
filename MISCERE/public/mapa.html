@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubicación del Proveedor</title>
+  <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="/estilos/listado_prov.css">
+</head>
+<body>
+  <header class="tabs">
+    <a href="/listado_prov.html" class="tab">Listado</a>
+    <a href="/mapa.html" class="tab active">Mapa</a>
+  </header>
+
+  <main class="contenedor">
+    <input type="text" placeholder="Buscar Proveedor" class="buscador" />
+
+    <div class="mapa-container">
+      <div id="map" style="width: 100%; height: 300px; border-radius: 10px;"></div>
+    </div>
+    
+
+    <div class="info-proveedor">
+      <h3>VIBESWEAR Cali, Champagna</h3>
+      <p>calle 5 #52-210 Local L101</p>
+      <small>Lunes a Sábado: sujeto a restricciones<br>Domingos y Festivos sujeto a restricciones</small>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="inicio">
+      <img src="https://cdn-icons-png.flaticon.com/512/8273/8273261.png" alt="Inicio">
+      <br><small>Inicio</small>
+    </a>
+
+    <a href="/catalogo.html">
+      <img src="https://cdn-icons-png.flaticon.com/256/16701/16701662.png" alt="Inicio">
+      <br><small>Categoria</small>
+    </a>
+
+    <a href="#">
+      <img src=" https://icones.pro/wp-content/uploads/2021/05/icone-de-panier-violet.png" alt="Inicio">
+      <br><small>Carrito</small>
+    </a>
+   
+    <a href="#">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJfC5xbSR2DrcdkY5h2PImwF2RA8xVrn56Q&s" alt="Inicio">
+      <br><small>Notificaciones</small>
+    </a>
+  </nav>
+
+  <script>
+    let map = L.map('map').setView([3.4516, -76.5320], 13); // Cali, Colombia
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  
+    let marker;
+  
+    function buscarDireccion(direccion) {
+      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.length > 0) {
+            const lat = data[0].lat;
+            const lon = data[0].lon;
+  
+            if (marker) map.removeLayer(marker);
+  
+            marker = L.marker([lat, lon]).addTo(map);
+            map.setView([lat, lon], 15);
+          } else {
+            alert("Dirección no encontrada.");
+          }
+        });
+    }
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      const buscador = document.querySelector(".buscador");
+      buscador.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const direccion = buscador.value.trim();
+          if (direccion) {
+            buscarDireccion(direccion);
+          }
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

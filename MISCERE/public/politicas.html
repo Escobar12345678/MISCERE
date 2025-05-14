@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Políticas de Seguridad</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #fff;
+    }
+
+    header {
+      background-color: #8759f2;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+
+    header .back {
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 1rem;
+    }
+
+    .accordion {
+      margin: 1rem 0;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .accordion-header {
+      background-color: #8759f2;
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+      font-size: 1rem;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-content {
+      background: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      display: none;
+      padding: 1rem;
+      font-size: 0.95rem;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .accordion-content p, .accordion-content ul {
+      margin: 0;
+    }
+
+    .accordion-content ul {
+      padding-left: 1.2rem;
+    }
+
+    .accordion.active .accordion-content {
+      display: block;
+    }
+
+    .accordion-content strong {
+      color: #8759f2;
+    }
+
+    .accordion-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .arrow {
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
+
+    .accordion.active .arrow {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="principal" class="back">←</a>
+    Políticas de seguridad
+  </header>
+
+  <div class="container">
+    <!-- 1 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Políticas de Seguridad MISCERE <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>Políticas de Seguridad de MISCERE</strong><br>
+        En MISCERE, estamos comprometidos con la seguridad y protección de la información de nuestros usuarios y sus negocios. Nuestras políticas de seguridad garantizan un entorno confiable y eficiente para la gestión de inventarios, ventas y relaciones comerciales.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Protección de datos <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>1. Protección de Datos</strong></p>
+        <ul>
+          <li>Toda la información proporcionada por nuestros usuarios será almacenada y protegida mediante protocolos de seguridad avanzados.</li>
+          <li>Cumplimos con normativas de protección de datos aplicables, asegurando la confidencialidad y el uso adecuado de la información.</li>
+          <li>No compartimos ni vendemos datos personales o comerciales a terceros sin el consentimiento expreso del usuario.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Seguridad en la plataforma <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>2. Seguridad en la Plataforma</strong></p>
+        <ul>
+          <li>Implementamos encriptación de datos para proteger la información almacenada y transmitida en nuestra plataforma.</li>
+          <li>Contamos con autenticación segura para el acceso de usuarios, incluyendo opciones de doble factor de autenticación (2FA).</li>
+          <li>Se realizan auditorías y actualizaciones constantes para prevenir vulnerabilidades y garantizar la integridad del sistema.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Control de acceso <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>3. Control de Acceso</strong></p>
+        <ul>
+          <li>Solo personal autorizado tiene acceso a la infraestructura de MISCERE para la administración y mantenimiento del sistema.</li>
+          <li>Cada usuario es responsable de la seguridad de sus credenciales de acceso y debe reportar cualquier actividad sospechosa de inmediato.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Continuidad y respaldo de Datos <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>4. Continuidad y Respaldo de Datos</strong></p>
+        <ul>
+          <li>Realizamos copias de seguridad periódicas para evitar la pérdida de información en caso de fallos técnicos o incidentes.</li>
+          <li>Contamos con planes de recuperación ante desastres para garantizar la disponibilidad del servicio en todo momento.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="accordion">
+      <button class="accordion-header">
+        Uso responsable y ético <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>5. Uso Responsable y Ético</strong></p>
+        <ul>
+          <li>El usuario se compromete a utilizar la plataforma de manera ética y conforme a las leyes vigentes.</li>
+          <li>Cualquier intento de acceso no autorizado, manipulación de datos o uso indebido de la plataforma será motivo de sanción o suspensión de la cuenta.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(accordion => {
+      const header = accordion.querySelector('.accordion-header');
+      header.addEventListener('click', () => {
+        accordion.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MISCERE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/CSS/AUTH/login.css" />
+  <link rel="icon" href="https://img.icons8.com/glyph-neue/64/course-assign.png" type="image/x-icon" />
+</head>
+
+<body class="bg-white font-sans flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="flex justify-between items-center px-4 py-3 bg-white shadow-md">
+    <h1 id="title" class="font-bold text-lg">MISCERE</h1>
+    <div class="relative flex items-center gap-4">
+      <div class="relative">
+        <button id="language-btn" class="flex items-center gap-2 p-2 border border-gray-300 rounded-full hover:bg-gray-100 transition">
+          <img id="flag" src="https://flagcdn.com/es.svg" alt="Español" class="w-6 h-4" />
+          <span id="language-text">Español</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="dropdown" class="absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg hidden z-10">
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100" onclick="changeLanguage('es')">
+            <img src="https://flagcdn.com/es.svg" class="w-6 h-4 inline-block mr-2" /> Español
+          </a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100" onclick="changeLanguage('en')">
+            <img src="https://flagcdn.com/us.svg" class="w-6 h-4 inline-block mr-2" /> Inglés
+          </a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100" onclick="changeLanguage('fr')">
+            <img src="https://flagcdn.com/fr.svg" class="w-6 h-4 inline-block mr-2" /> Francés
+          </a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100" onclick="changeLanguage('de')">
+            <img src="https://flagcdn.com/de.svg" class="w-6 h-4 inline-block mr-2" /> Alemán
+          </a>
+        </div>
+      </div>
+      <button id="user-button" class="flex items-center gap-2 p-2 border border-gray-300 rounded-full hover:bg-gray-100 transition">
+        <img src="https://img.icons8.com/glyph-neue/64/group--v1.png" alt="Grupos" class="w-6 h-6" />
+        <span id="user-text">Usuario</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <section class="bg-purple-500 text-white text-center p-10 rounded-b-[60%]">
+    <div class="mb-4">
+      <img src="LOGO.png" alt="MISCERE Logo" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg" />
+    </div>
+    <div class="space-y-3">
+      <a id="login-btn" href="login.html" class="block bg-white text-black font-semibold py-3 px-4 rounded-full w-1/2 mx-auto text-sm hover:bg-gray-100 transition">Iniciar Sesión</a>
+      <a id="register-btn" href="login.html" class="block bg-white text-black font-semibold py-3 px-4 rounded-full w-1/2 mx-auto text-sm hover:bg-gray-100 transition">Registra tu Tienda</a>
+    </div>
+  </section>
+<!-- Carrusel Swiper -->
+<section class="w-full max-w-5xl mx-auto py-8">
+    <h2 id="gallery-title" class="text-2xl font-bold text-center mb-6">Galería de Tiendas</h2>
+    <div class="swiper mySwiper rounded-2xl overflow-hidden shadow-lg">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://img.freepik.com/vector-gratis/pagina-tienda-linea-tableta_74855-5906.jpg?semt=ais_hybrid&w=740" class="w-full h-[300px] object-cover" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://media.istockphoto.com/id/1179101265/es/vector/compras-en-l%C3%ADnea-tel%C3%A9fono-inteligente-y-bolsa-de-la-compra-concepto-de-comercio-electr%C3%B3nico.jpg?s=612x612&w=0&k=20&c=FPSKCvMualX6jy7WUCBiDmhIjhejrX6L0kfrtcjbnUM=" class="w-full h-[300px] object-cover" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://ibo.pe/blog/wp-content/uploads/2020/01/6-elementos-claves-para-crear-tu-tienda-online.png" class="w-full h-[300px] object-cover" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+  
+
+  <footer class="text-center py-6 text-sm text-gray-700 space-y-1">
+    <a href="login.html" class="block underline hover:text-gray-900">Iniciar Como Proveedor</a>
+    <a href="login.html" class="block underline hover:text-gray-900">Iniciar Como Administrador</a>
+    <a href="login.html" class="block underline hover:text-gray-900">Registrarse Como Administrador</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/JS/AUTH/login_inicio.js"></script>
+</body>
+
+</html>

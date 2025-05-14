@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seguimiento Pedido</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .app-container {
+      width: 440px;
+      height: 956px;
+      border: 1px solid #ccc;
+      margin: auto;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h3 {
+      margin: 0 auto;
+      font-size: 16px;
+    }
+
+    .header a {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #map {
+      height: 350px;
+      width: 100%;
+    }
+
+    .card {
+      background: #8C52FF;
+      color: white;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    .card-info {
+      flex: 1;
+      margin-left: 10px;
+    }
+
+    .card-info h4 {
+      margin: 0;
+    }
+
+    .card-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .card-icons i {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .details {
+      background: white;
+      padding: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .details p {
+      margin: 5px 0;
+    }
+
+    .details .label {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .details .value {
+      font-weight: bold;
+    }
+
+    .details .price {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #8C52FF;
+    }
+  </style>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <a href="principal">←</a>
+      <h3>Seguimiento</h3>
+      <span style="visibility:hidden;">←</span>
+    </div>
+
+    <!-- MAPA REAL USANDO LEAFLET -->
+    <div id="map"></div>
+
+    <div class="card">
+      <img src="https://i.imgur.com/mQZxZyK.png" alt="Miscere Logo">
+      <div class="card-info">
+        <h4>Miscere</h4>
+        <div>★★★★☆</div>
+      </div>
+      <div class="card-icons">
+        <i>📞</i>
+        <i>💬</i>
+      </div>
+    </div>
+
+    <div class="details">
+      <p class="label">Estimado Pepito</p>
+      <p class="value">18 de Febrero 2025</p>
+      <p class="label">Centro de Cali</p>
+      <p class="label">Destino: FCECEP</p>
+      <p class="price">ARKITECTS<br>INR 28,000</p>
+    </div>
+  </div>
+
+  <script>
+    // Inicializar el mapa centrado en Cali
+    const map = L.map('map').setView([3.4516, -76.5320], 13);
+
+    // Capa base del mapa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marcador (puedes personalizarlo)
+    L.marker([3.4516, -76.5320])
+      .addTo(map)
+      .bindPopup("Proveedor en Cali")
+      .openPopup();
+
+    // Funcionalidad botones
+    document.querySelector('.card-icons i:first-child').addEventListener('click', () => {
+      alert("Llamando al conductor...");
+    });
+
+    document.querySelector('.card-icons i:last-child').addEventListener('click', () => {
+      alert("Abriendo chat con soporte...");
+    });
+  </script>
+</body>
+</html>

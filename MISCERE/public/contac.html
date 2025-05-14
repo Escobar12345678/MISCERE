@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Miscere</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .back-button {
+      font-size: 18px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .contact-info {
+      background-color: #6c4fdb;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .contact-info h2 {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6c4fdb;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #5740b4;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="back-button" onclick="goBack()">&larr; Volver</div>
+      <h1>Miscere</h1>
+    </header>
+
+    <section class="contact-info">
+      <h2>Contáctanos</h2>
+      <p>Vamos hablar juntos</p>
+      <p>Danos tu opinión</p>
+
+      <p><strong>Información de contacto</strong></p>
+      <p>+57 3154874569</p>
+      <p>miscere@gmail.com</p>
+      <p>Somos una tienda online</p>
+
+      <div class="social-icons">
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Discord</a>
+      </div>
+    </section>
+
+    <form>
+      <input type="text" placeholder="Nombres" required>
+      <input type="text" placeholder="Apellidos" required>
+      <input type="email" placeholder="Correo" required>
+      <input type="tel" placeholder="Número celular" required>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <footer>
+      <p>&copy; 2025 Miscere - Todos los derechos reservados</p>
+    </footer>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+</body>
+</html>

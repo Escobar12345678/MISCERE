@@ -1,0 +1,162 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .back-arrow {
+    font-size: 24px;
+    text-decoration: none;
+    margin-right: 10px;
+    color: #6a00ff;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .product-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .brand {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .colors {
+    margin: 10px 0;
+  }
+  
+  .color-circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid #999;
+  }
+  
+  .price-info {
+    margin: 5px 0;
+  }
+  
+  .discount {
+    background-color: black;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 8px;
+  }
+  
+  .current-price {
+    color: #000;
+    margin: 5px 0;
+  }
+  
+  .stock-alert {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .shipping {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .actions .buy {
+    border: 1px solid red;
+    color: red;
+    background: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  .actions .add-cart {
+    background: green;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  .actions .add {
+    background: #e0ffe0;
+    border: none;
+    padding: 6px;
+    border-radius: 20px;
+    font-size: 18px;
+  }
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .quantity-selector button {
+    background-color: #00cc66;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 8px;
+  }
+  
+  .quantity-selector .quantity {
+    font-size: 18px;
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  

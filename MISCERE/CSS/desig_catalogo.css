@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+  }
+  
+  .header {
+    background-color: #7d4cf0;
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+  }
+  
+  .back-arrow {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    opacity: 0.6;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 1px;
+    padding: 0 16px 24px;
+  }
+  
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category-item img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  a.category-button {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #7d4cf0;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  a.category-button:hover {
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Animación al pasar el mouse */
+  .category-button:hover {
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* RESPONSIVE: Solo por si lo visualizas en pantallas mayores */
+  @media (min-width: 600px) {
+    .categories {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .category-item img {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .category-item button {
+      font-size: 14px;
+    }
+  }
+  

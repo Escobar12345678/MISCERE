@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información - Miscere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/estilos/main.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>Miscere</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="camilo.html">Información</a></li>
+                <li>
+                    <a href="#" class="nav-notif-trigger">
+                      <i class="fas fa-bell"></i>
+                      <span class="notif-badge">3</span>
+                    </a>
+                  </li>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="info-container">
+            <h1>Información y Contacto</h1>
+            
+            <div class="info-cards">
+                <a href="quienes-somos.html" class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Quienes Somos</h3>
+                    <p>Conoce más sobre nuestra historia, misión y visión</p>
+                </a>
+                
+                <a href="politicas.html" class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Políticas de Seguridad</h3>
+                    <p>Términos, condiciones y políticas de nuestra tienda</p>
+                </a>
+                
+                <a href="pqrs.html" class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3>PQRS</h3>
+                    <p>Peticiones, quejas, reclamos y sugerencias</p>
+                </a>
+                
+                <div class="info-card" id="ubicacion-card">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Ubicación</h3>
+                    <p>Encuentra nuestra oficina física</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de ubicación -->
+        <section id="ubicacion" class="ubicacion-section">
+            <h2>Nuestra Ubicación</h2>
+            <div class="map-container">
+                <!-- Mapa con altura responsive -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8101263330753!2d-74.0729!3d4.6371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMTMuNiJOIDc0wrAwNCcyMi40Ilc!5e0!3m2!1ses!2sco!4v1588888888888!5m2!1ses!2sco" 
+                    width="100%"
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="ubicacion-info">
+                <div class="direccion">
+                    <h3>Dirección Principal</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle 123 #45-67, Ciudad</p>
+                    <p><i class="fas fa-phone"></i>+57 315 487  4569</p>
+                    <p><i class="fas fa-envelope"></i> miscere@gmail.com</p>
+                </div>
+                <div class="horario">
+                    <h3>Horario de Atención</h3>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sábados: 9:00 AM - 2:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Domingos y Festivos: Cerrado</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                    <li><a href="politicas.html">Políticas</a></li>
+                    <li><a href="pqrs.html">PQRS</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> miscere@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +57 315 487  4569</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Miscere. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <!-- Sistema de Notificaciones (NUEVO) - Colocar antes del </body> -->
+<div class="notif-panel">
+  <div class="notif-header" style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center;">
+      <a href="/camilo.html" onclick="history.back()" style="display: flex; align-items: center; text-decoration: none; color: inherit; margin-right: 1rem;">
+        <span style="font-size: 1.5rem;">←</span>        
+      </a>
+      <h3>Notificaciones</h3>
+    </div>
+    
+
+  </div>
+  
+    
+    <div class="notif-list">
+      <div class="notif-day">Hoy</div>
+      
+      <a href="#" class="notif-item">
+        <div class="notif-content">
+          Pagaste $500.000 a Universal de Dulces
+        </div>
+        <div class="notif-time">9:01am</div>
+      </a>
+      
+      <a href="#" class="notif-item">
+        <div class="notif-content">
+          Pepito, tienes pendiente cancelar la siguiente factura
+        </div>
+        <div class="notif-time">9:01am</div>
+      </a>
+      
+      <a href="#" class="notif-item pay">
+        <div class="notif-content">
+          Pepito debes pagar $10,000 de domicilio
+        </div>
+        <div class="notif-time">9:01am</div>
+      </a>
+      
+      <div class="notif-day">Ayer</div>
+      
+      <a href="#" class="notif-item">
+        <div class="notif-content">
+          Pagaste $1.500.000 a Variedades María
+        </div>
+        <div class="notif-time">9:01am</div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Botón flotante para móviles (NUEVO) -->
+  <div class="notif-mobile-btn">
+    <i class="fas fa-bell"></i>
+    <span class="notif-badge">3</span>
+  </div>
+  
+  <script>
+  // Script de Notificaciones (NUEVO)
+  document.addEventListener('DOMContentLoaded', function() {
+    const notifPanel = document.querySelector('.notif-panel');
+    const notifTrigger = document.querySelector('.nav-notif-trigger');
+    const mobileNotifBtn = document.querySelector('.notif-mobile-btn');
+    
+    // Función para abrir/cerrar
+    function toggleNotif() {
+      notifPanel.classList.toggle('active');
+    }
+    
+    // Eventos para abrir
+    if(notifTrigger) {
+      notifTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleNotif();
+      });
+    }
+    
+    if(mobileNotifBtn) {
+      mobileNotifBtn.addEventListener('click', toggleNotif);
+    }
+    
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      if(!notifPanel.contains(e.target) && 
+         e.target !== notifTrigger && 
+         e.target !== mobileNotifBtn &&
+         !notifTrigger?.contains(e.target)) {
+        notifPanel.classList.remove('active');
+      }
+    });
+    
+    // Función para añadir notificaciones
+    window.addNotif = function(text, time, isPay = false, isToday = true) {
+      const list = document.querySelector('.notif-list');
+      const daySection = isToday ? 'Hoy' : 'Ayer';
+      
+      let dayElement = Array.from(document.querySelectorAll('.notif-day'))
+                          .find(el => el.textContent === daySection);
+      
+      if(!dayElement) {
+        dayElement = document.createElement('div');
+        dayElement.className = 'notif-day';
+        dayElement.textContent = daySection;
+        list.appendChild(dayElement);
+      }
+      
+      const notif = document.createElement('a');
+      notif.href = '#';
+      notif.className = `notif-item ${isPay ? 'pay' : ''}`;
+      notif.innerHTML = `
+        <div class="notif-content">${text}</div>
+        <div class="notif-time">${time}</div>
+      `;
+      
+      dayElement.insertAdjacentElement('afterend', notif);
+      updateNotifBadge();
+    }
+    
+    // Actualizar badge
+    function updateNotifBadge() {
+      const count = document.querySelectorAll('.notif-item').length;
+      document.querySelectorAll('.notif-badge').forEach(badge => {
+        badge.textContent = count;
+      });
+    }
+  });
+  </script>
+</body>
+</html>

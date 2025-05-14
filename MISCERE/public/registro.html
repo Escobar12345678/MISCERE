@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro</title>
+  <link rel="stylesheet" href="/estilos/AUTH/registro.css" />
+</head>
+<body>
+  <div class="container">
+    <form action="/regUsuario" class="form-box" method="post">
+      <h2>Crear cuenta</h2>
+      
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Introduce tu nombre" required  />
+      </div>
+      
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Introduce tu apellido" required  />
+      </div>
+      
+      <div class="form-group">
+        <label for="registerEmail">Correo Electrónico</label>
+        <input type="email" name="registerEmail" id="registerEmail" placeholder="Introduce tu correo" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Número de Celular</label>
+        <div class="phone-inputs">
+          <input type="text" name="phonePrefix" id="phonePrefix" value="+855" required  />
+          <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Introduce tu número" required />
+        </div>
+      </div>
+
+      <p class="note">
+        La contraseña debe tener al menos 6 caracteres e incluir una combinación de números, letras y caracteres especiales.
+      </p>
+
+      <div class="form-group">
+        <label for="registerPassword">Crear contraseña</label>
+        <input type="password" name="registerPassword" id="registerPassword" placeholder="Contraseña" required />
+      </div>
+
+      <div class="form-group">
+        <label for="registerPasswordConfirm">Repetir contraseña</label>
+        <input type="password" name="registerPasswordConfirm" id="registerPasswordConfirm" placeholder="Confirmar contraseña" required  />
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" name="recordarme" id="recordarme" required  />
+        <label for="recordarme">Recordarme</label>
+      </div>
+
+      <button type="submit" class="btn-primary">Registrarse</button>
+
+      <p class="small-text">¿Ya tienes una cuenta?</p>
+      <button type="button" onclick="location.href='index.html'" class="btn-secondary">Iniciar sesión</button>
+    </form>
+  </div>
+</body>
+</html>

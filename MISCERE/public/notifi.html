@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/estilos/inicio.css">
+  <title>Notificaciones</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #8759f2;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h2 {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .search-container {
+      margin: 1rem;
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      flex: 1;
+      margin-left: 0.5rem;
+    }
+
+    .section-title {
+      font-weight: bold;
+      color: gray;
+      margin: 1rem 1rem 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .notification {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      justify-content: space-between;
+    }
+
+    .notification img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .notification-content {
+      flex: 1;
+      margin-right: 1rem;
+    }
+
+    .notification-content p {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .notification-content .time {
+      font-size: 0.7rem;
+      color: gray;
+    }
+
+    .pay-btn {
+      background-color: #8759f2;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pay-btn:hover {
+      background-color: #6a3fce;
+    }
+
+    /* Barra inferior modificada */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.7rem 0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #8759f2;
+    }
+
+    .icon {
+      font-size: 1.4rem;
+    }
+
+    .nav-item .circle {
+      background-color: #8759f2;
+      color: white;
+      border-radius: 50%;
+      padding: 0.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-item.active span {
+      color: #8759f2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span>&larr;</span>
+    <h2>Notificaciones</h2>
+    <a href="/inicio">←</a>
+  </header>
+
+  <div class="search-container">
+    <span>&#128269;</span>
+    <input type="text" placeholder="Buscar Notificación">
+  </div>
+
+  <div class="section-title">Hoy</div>
+
+  <div class="notification">
+    <img src="https://img.freepik.com/vector-premium/personaje-avatar-esta-aislado_729149-194801.jpg?semt=ais_hybrid&w=740" alt="user">
+    <div class="notification-content">
+      <p>Pagaste <span style="color: #007bff;">$500.000</span> a Universal de Dulces</p>
+      <div class="time">9:01am</div>
+    </div>
+  </div>
+
+  <div class="notification">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-icon-download-in-svg-png-gif-file-formats--user-boy-avatars-flat-icons-pack-people-456322.png" alt="user">
+    <div class="notification-content">
+      <p><strong>Pepito, tienes pendiente cancelar la siguiente factura</strong></p>
+      <div class="time">9:01am</div>
+    </div>
+    <a href="/metodos-pago" class="pay-btn">PAY</a>
+  </div>
+
+  <div class="notification">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-icon-download-in-svg-png-gif-file-formats--user-boy-avatars-flat-icons-pack-people-456322.png" alt="user">
+    <div class="notification-content">
+      <p>Pepito debes pagar <span style="color: #007bff;">$10,000 de domicilio</span></p>
+      <div class="time">9:01am</div>
+    </div>
+    <a href="/metodos-pago" class="pay-btn">PAY</a>
+  </div>
+
+  <div class="section-title">Ayer</div>
+
+  <div class="notification">
+    <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/14194216-icone-d-avatar-humain-le-badge-d-une-personne-vecteur-symbole-de-profil-de-medias-sociaux-le-symbole-d-une-personne-vectoriel.jpg" alt="user">
+    <div class="notification-content">
+      <p>Pagaste <span style="color: #007bff;">$1.500.000</span> a Variedades María</p>
+      <div class="time">9:01am</div>
+    </div>
+  </div>
+
+  <div class="notification">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-icon-download-in-svg-png-gif-file-formats--user-boy-avatars-flat-icons-pack-people-456322.png" alt="user">
+    <div class="notification-content">
+      <p><strong>Pepito, tienes pendiente cancelar la siguiente factura</strong></p>
+      <div class="time">9:01am</div>
+    </div>
+    <a href="/metodos-pago" class="pay-btn">PAY</a>
+  </div>
+
+  <div class="section-title">Esta semana</div>
+
+  <div class="notification">
+    <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/14194216-icone-d-avatar-humain-le-badge-d-une-personne-vecteur-symbole-de-profil-de-medias-sociaux-le-symbole-d-une-personne-vectoriel.jpg" alt="user">
+    <div class="notification-content">
+      <p>Pagaste <span style="color: #007bff;">$250.000</span> a Destello y Flores</p>
+      <div class="time">9:01am</div>
+    </div>
+  </div>
+
+  <!-- Menú inferior -->
+  <nav class="bottom-nav">
+    <a href="inicio"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/8273/8273261.png" alt="Inicio">
+      <br><small>Inicio</small>
+    </a>
+
+    <a href="/catalogo.html">
+      <img src="https://cdn-icons-png.flaticon.com/256/16701/16701662.png" alt="Inicio">
+      <br><small>Categoria</small>
+    </a>
+
+    <a href="/carri.html">
+      <img src=" https://icones.pro/wp-content/uploads/2021/05/icone-de-panier-violet.png" alt="Inicio">
+      <br><small>Carrito</small>
+    </a>
+   
+    <a href="/notifi.html">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJfC5xbSR2DrcdkY5h2PImwF2RA8xVrn56Q&s" alt="Inicio">
+      <br><small>Notificaciones</small>
+    </a>
+  </nav>
+
+  <script>
+    const payButtons = document.querySelectorAll('.pay-btn');
+    payButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert("Redirigiendo a la página de pago...");
+      });
+    });
+  </script>
+
+</body>
+</html>

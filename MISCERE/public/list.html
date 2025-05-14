@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisar Pedido</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      color: #000;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      background-color: #8759f2;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .search-box {
+      background: #f1f1f1;
+      padding: 0.7rem 1rem;
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      margin-left: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .section {
+      background-color: #f5edff;
+      padding: 1rem;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+
+    .section.secondary {
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section h4 {
+      margin-bottom: 0.3rem;
+    }
+
+    .address, .delivery-date {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .edit-icon, .arrow-icon {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .card-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card {
+      min-width: 260px;
+      padding: 1rem;
+      border-radius: 20px;
+      color: white;
+      position: relative;
+      background: linear-gradient(135deg, #ff6ec4, #7873f5);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card .brand {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-number {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+      font-weight: bold;
+    }
+
+    .card .checkmark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2rem;
+      background: white;
+      color: #8759f2;
+      border-radius: 50%;
+      padding: 0.2rem;
+    }
+
+    .total {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    .total .label {
+      color: gray;
+      font-size: 0.9rem;
+    }
+
+    .total .value {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .order-btn {
+      background: #8759f2;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.9rem;
+      border-radius: 15px;
+      width: 100%;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 10px rgba(135, 89, 242, 0.4);
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background-color: #6e46d9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-btn">&larr;
+    <a href="/inicio">←</a>
+  </div>
+
+  <div class="search-box">
+    <span>&#128269;</span>
+    <input type="text" placeholder="Buscar Producto">
+  </div>
+
+  <h2>Revisar Pedido</h2>
+
+  <div class="section">
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <h4>Pepito Pérez</h4>
+        <div class="address">📍 Cl. 9b #29a67, La Alameda, Cali, Valle del Cauca</div>
+      </div>
+      <div class="edit-icon">&#9998;</div>
+    </div>
+  </div>
+
+  <div class="section secondary">
+    <div>
+      <h4>Rappi</h4>
+      <div class="delivery-date">Entregar del 10 al 20 de Febrero 2025</div>
+    </div>
+    <div class="arrow-icon">&#8250;</div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="brand">💳 Mastercard</div>
+      <div class="card-number">5135 2159 3169 1231</div>
+      <div class="card-name">PEPITO</div>
+      <div class="checkmark">&#10003;</div>
+    </div>
+    <!-- Puedes agregar más tarjetas aquí -->
+  </div>
+
+  <div class="total">
+    <div class="label">Subtotal</div>
+    <div class="value">$9.595.830</div>
+  </div>
+
+  <a href="/metodos-pago" class="order-btn">Realizar Pedido</a>
+
+</body>
+</html>

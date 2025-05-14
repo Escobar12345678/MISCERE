@@ -1,0 +1,134 @@
+/* Estilos generales (modo claro) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(206, 180, 251);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar {
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.photo {
+    width: 40px;  
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar-profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu li .icon {
+    width: 24px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer-link {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 12px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.footer-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Estilos para el modo oscuro */
+body.dark {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+body.dark .sidebar {
+    background-color: #1f1f1f;
+}
+
+body.dark .menu a {
+    color: #ffffff;
+}
+
+body.dark .footer-link a {
+    color: #ffffff;
+}
+
+body.dark .theme-toggle-container button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+body.dark .menu li {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+body.dark .menu li:hover {
+    background-color: #555;
+}
+
+body.dark .footer-link {
+    border-top: 1px solid #666;
+}
+
+/* Transición suave entre los temas */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        height: 100%;
+        overflow-y: auto;
+    }
+}

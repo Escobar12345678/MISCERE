@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/estilos/principal.css">
+  <title>Sidebar</title>
+</head>
+<body>
+
+  <div class="theme-toggle-container">
+    <button onclick="toggleDarkMode()">🌙 Cambiar a Modo Oscuro</button>
+  </div>
+  
+  <div class="sidebar">
+    <div class="profile-section">
+      <!-- Mostrar la foto de perfil desde localStorage -->
+      <div class="photo">
+        <img id="sidebar-profile-photo" src="https://via.placeholder.com/64" alt="Foto de perfil" class="w-full h-full object-cover">
+      </div>
+      <div class="user-info">
+        <strong> <span id="user-name"></span></strong>
+        <div class="profile-link"><a href="/perfil">Mi perfil ❯</a></div>
+    </div>
+
+    <script>
+      // Insertar dinámicamente el nombre del usuario
+      document.getElementById('user-name').textContent = "<%= name %>";
+    </script>
+  
+  
+    </div>
+
+    <ul class="menu">
+      <li><a href="inicio"><i class="icon">🏠</i>Inicio</a></li>
+      <li><a href="#"><i class="icon">🔍</i>Buscar</a></li>
+      <li><a href="/notifi.html"><i class="icon">🔔</i>Notificaciones</a></li>
+      <li><a href="/catalogo.html"><i class="icon">📦</i>Categoría</a></li>
+      <li><a href="/list.html"><i class="icon">📋</i>Lista de pedidos</a></li>
+      <li><a href="/seg.html"><i class="icon">📤</i>Seguimiento</a></li>
+      <li><a href="/devo.html"><i class="icon">📤</i>Devolución</a></li>
+      <li><a href="carri.html"><i class="icon">🛒</i>Carrito de compras</a></li>
+      <li><a href="/listado_prov.html"><i class="icon">📦</i>Proveedores</a></li>
+      <li><a href="/his.html"><i class="icon">🧾</i>Historial de compras</a></li>
+      <li><a href="/contac.html"><i class="icon">📞</i>Contáctanos</a></li>
+      <li><a href="/pqrs.html"><i class="icon">💬</i>PQRS</a></li>
+      <li><a href="/politicas.html"><i class="icon">🛡️</i>Políticas de Seguridad</a></li>
+      <li><a href="/mapa.html"><i class="icon">📍</i>Ubicación</a></li>
+      <li><a href="/quienes-somos.html"><i class="icon">👥</i>Quiénes Somos</a></li>
+    </ul>
+
+    <style>
+      .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+      }
+  
+      .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <!-- Enlace en el pie de página -->
+    <div class="footer-link">
+      <a href="#" onclick="openTermsModal()">Términos y Condiciones</a>
+    </div>
+  
+    <!-- Modal de Términos y Condiciones -->
+    <div id="termsModal" class="modal" onclick="outsideClickClose(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold" id="terms-title">Términos y condiciones</h3>
+          <span onclick="closeTermsModal()" class="cursor-pointer text-xl">&times;</span>
+        </div>
+        <div class="text-sm">
+          <p id="terms-text-1">
+            Al registrarte y usar <strong>MISCERE</strong> aceptas estos Términos y Condiciones. La app está diseñada para optimizar la gestión de misceláneas, facilitando el control de inventario, la relación con proveedores y la expensión del cliente. Su uso está destinado exclusivamente a propietarios y administradores de misceláneas, prohibiéndose su explotación o uso ilícito.
+          </p>
+          
+          <p class="mt-3" id="terms-text-2">
+            Para acceder a sus funciones, debes registrarte con información verídica y eres responsable del uso de tu cuenta: MISCERE puede suspender cuenta que incumplan estas normas. Cumplimos con la Ley 1582 de 2012 sobre Protección de Datos Personales por lo que tu información solo se usará para mejorar la experiencia del usuario y no se compartirá con terceros sin consentimiento, salvo requerimiento legal.
+          </p>
+          
+          <p class="mt-3" id="terms-text-3">
+            Si la app ofrece compras o pagos, estos serán procesados por plataformas seguras, sin responsabilidad por problemas con terceros. Todo el contenido de MISCERE está protegido por la Ley 23 de 1982 de Derechos de Autor, por lo que no puedes copiarlo, ni modificarlo sin autorización.
+          </p>
+          
+          <p class="mt-3" id="terms-text-4">
+            Nos esforzamos por ofrecer un servicio seguro, pero no garantizamos que esté libre de errores o interrupciones, ni nos hacemos responsables de pérdidas derivadas de su uso. Nos reservamos el derecho de modificar estos términos y notificaremos cambios relevantes.
+          </p>
+          
+          <div class="mt-4 flex items-center">
+            <input type="checkbox" id="acceptTerms" class="mr-2">
+            <label for="acceptTerms" id="accept-terms-label">He leído y acepto los Términos y Condiciones</label>
+          </div>
+          
+          <div class="mt-4 text-right">
+            <button onclick="closeTermsModal()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2" id="cancel-terms-btn">Cancelar</button>
+            <button onclick="acceptTerms()" class="bg-purple-600 text-white px-4 py-2 rounded" id="accept-terms-btn">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Scripts -->
+    <script>
+      function openTermsModal() {
+        document.getElementById('termsModal').style.display = 'block';
+      }
+  
+      function closeTermsModal() {
+        document.getElementById('termsModal').style.display = 'none';
+      }
+  
+      function outsideClickClose(event) {
+        if (event.target.id === 'termsModal') {
+          closeTermsModal();
+        }
+      }
+  
+      function acceptTerms() {
+        const checkbox = document.getElementById('acceptTerms');
+        if (checkbox.checked) {
+          alert("Términos aceptados.");
+          closeTermsModal();
+        } else {
+          alert("Debes aceptar los términos y condiciones para continuar.");
+        }
+      }
+    </script>
+
+  <script>
+    // Cargar la foto de perfil desde localStorage
+    window.onload = function() {
+      const savedPhoto = localStorage.getItem('profilePhoto');
+      if (savedPhoto) {
+        document.getElementById('sidebar-profile-photo').src = savedPhoto;
+      }
+      
+      // Cargar el tema desde localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.body.classList.add(savedTheme);
+      }
+    };
+
+    // Función para cambiar el tema entre oscuro y claro
+    function toggleDarkMode() {
+      const isDarkMode = document.body.classList.contains('dark');
+      if (isDarkMode) {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+  </script>
+
+</body>
+</html>
